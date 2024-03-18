@@ -1,0 +1,19 @@
+.header{
+    background-color:  var(--corPrincipal);
+    display: flex;
+    flex-direction:  column;
+    align-items: center;
+    padding: 180px 0 40px 0;
+    margin-bottom: 18px;
+}
+.avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border-color:var(--corsecundaria);
+    border-style:solid;
+}
+.name{
+    font-size: 18px;
+    color: var(--corsecundaria);
+}
