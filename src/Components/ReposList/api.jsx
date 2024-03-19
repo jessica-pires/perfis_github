@@ -6,18 +6,28 @@ const ApiRepos = ({ nomeUsuario })=> {
 
     const [repos, setrepos ]= useState([]);
     const [estaCarregando, setEstaCarregando] = useState(true);
+   
 
     useEffect(()=> {
         setEstaCarregando(true)
+    
+
         fetch(`https://api.github.com/users/${nomeUsuario}/repos`)
-        .then(res => res.json())
+
+        .then(res => {
+            if (!res.ok) {
+                throw new Error('Perfil do GitHub não encontrado');
+            }
+            return res.json();
+        })
         .then(resJson => {
             setTimeout(()=> {
+
                 setEstaCarregando(false);
                 setrepos(resJson);
 
             },3000)
-            console.log(resJson)
+    
         
         })
     }, [nomeUsuario])
